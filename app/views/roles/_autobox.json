@@ -1,0 +1,4 @@
+json.array!(@credentials) do |credential|
+  json.name        credential.name
+  json.required    book.required
+end

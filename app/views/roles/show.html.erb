@@ -1,0 +1,52 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @role.name %>
+</p>
+
+<h3>Credentials</h3>
+<% @role.credentials.each do |credential| %>
+<p>
+  <% if credential.required %>
+    <b>Required</b> :: 
+  <% end %>
+
+  <%= credential.name %> :: 
+
+  <%= link_to 'Destroy Credential', [credential.role, credential],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  
+</p>
+<% end %>
+
+<h3>Add a Credential</h3>
+<%= form_for([@role, @role.credentials.build]) do |f| %>
+  <% if @credential %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% @role.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :required %><br />
+  <%= f.check_box :required %>
+</p>
+    <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Back', roles_path %>
