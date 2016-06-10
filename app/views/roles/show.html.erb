@@ -25,17 +25,6 @@
 
 <h3>Add a Credential</h3>
 <%= form_for([@role, @role.credentials.build]) do |f| %>
-  <% if @credential %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
-
-      <ul>
-      <% @role.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>

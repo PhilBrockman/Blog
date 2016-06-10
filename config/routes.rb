@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :roles do
-    resources :credentials do
-      get '/roles/:role_id' => 'credentials#show'
-    end
+    resources :credentials
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
