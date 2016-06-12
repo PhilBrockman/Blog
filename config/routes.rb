@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'explore', to: 'teachers#explore'
+  post 'explore' => 'teachers#create'
+  resources :teachers
   resources :roles do
     resources :credentials
   end
