@@ -1,0 +1,12 @@
+<h3>Teaching SpEd in PA</h3>
+<p>
+looks like you are trying for SpEd.  You need 
+  <b><% if ["early", "middle"].include?(@teacher.grade_level) %>
+    preK-8
+  <% else %>
+    8-12
+  <% end %></b>
+<p>
+  <%if pa %>
+<p>PA requires that you have a special education and a general education certificate </p>
+<% end %>

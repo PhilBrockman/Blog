@@ -5,19 +5,21 @@ class TeachersController < ApplicationController
   
   def create
     @teacher = Teacher.new(teacher_params)
+    @role    = Role.find(@teacher.role_id)
     
     if @teacher.special_education
       @special_education = true
     end
-    if @teacher.US #is certified?
       if @teacher.PA #has local certs
         @pa_certified = true
-      else #has certs in another state
+      if @teacher.US #has certs in another state
         @out_of_state = true
       end
     else #no certs
-      @needed_certs = Role.find(@teacher.role_id).certificates.all
+      @needed_certs = Role.find(@teacher.role_id).credentials.all
     end
+    
+    render :report
   end
   
   def explore
@@ -28,6 +30,6 @@ class TeachersController < ApplicationController
   
   private
     def teacher_params
-      params.require(:teacher).permit(:role, :grade_level, :special_education, :PA, :US, :name)
+      params.require(:teacher).permit(:role_id, :grade_level, :special_education, :PA, :US, :name)
     end
 end
