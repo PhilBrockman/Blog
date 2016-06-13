@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.all
+    @roles = Role.order('name ASC').all
   end
 
   # GET /roles/1
@@ -14,6 +14,7 @@ class RolesController < ApplicationController
     #format.html
     #format.json { @credentials = #Credential.search(params[:term]) }
   #end
+  @credential_names = Credential.order('name ASC').all.uniq{|c| c.name}
 
   end
 

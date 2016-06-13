@@ -19,6 +19,25 @@ class CredentialsController < ApplicationController
     end
   end
   
+  def edit
+    @credential = @role.credentials.find(params[:id])
+  end
+  
+  def update
+    @credential = Credential.find(params[:id])
+    
+    respond_to do |format|
+      if @credential.update(credential_params)
+        format.html { redirect_to @role, notice: 'Credential was successfully updated.' }
+        format.json { render :show, status: :ok, location: @role }
+        else
+        format.html { render :edit }
+        format.json { render json: @role.credentials.errors, status: :unprocessable_entity }
+      end
+      end
+    
+  end
+  
   def destroy
     @credential = @role.credentials.find(params[:id])
     @credential.destroy

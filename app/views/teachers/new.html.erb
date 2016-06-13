@@ -1,6 +1,5 @@
 <%= form_for(@teacher) do |f| %>
-  <% roles_array = @unique_roles.all.map{ |r| [r.name, r.id]}
-     roles_array = roles_array.sort {|r| r[1]} %>
+  <% roles_array = @unique_roles.map{ |r| [r.name, r.id]} %>
 <p>
   <%= f.label :role_id %>
 <%= f.select :role_id, roles_array %> <!--, :include_blank => true %> <!/-->

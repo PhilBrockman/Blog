@@ -24,7 +24,7 @@ class TeachersController < ApplicationController
   
   def explore
     @teacher = Teacher.new
-    @unique_roles = Role.find_unique_names
+    @unique_roles = Role.find_unique_names.sort_by{|r| r.name}
     render :new
   end
   
