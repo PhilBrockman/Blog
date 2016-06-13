@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160613172038) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "credentials", force: :cascade do |t|
     t.string   "name"
     t.boolean  "required"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160613172038) do
     t.integer  "role_id"
   end
 
-  add_index "credentials", ["role_id"], name: "index_credentials_on_role_id"
+  add_index "credentials", ["role_id"], name: "index_credentials_on_role_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -33,8 +36,6 @@ ActiveRecord::Schema.define(version: 20160613172038) do
     t.integer  "role_id"
     t.string   "grade_level"
     t.boolean  "special_education"
-    t.boolean  "US"
-    t.integer  "certificate_id"
     t.string   "name"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
@@ -42,7 +43,8 @@ ActiveRecord::Schema.define(version: 20160613172038) do
     t.string   "certificate_location"
   end
 
-  add_index "teachers", ["certificate_id"], name: "index_teachers_on_certificate_id"
-  add_index "teachers", ["role_id"], name: "index_teachers_on_role_id"
+  add_index "teachers", ["role_id"], name: "index_teachers_on_role_id", using: :btree
 
+  add_foreign_key "credentials", "roles"
+  add_foreign_key "teachers", "roles"
 end

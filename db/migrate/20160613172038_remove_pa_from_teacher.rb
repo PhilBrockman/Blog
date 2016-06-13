@@ -3,6 +3,6 @@ class RemovePaFromTeacher < ActiveRecord::Migration
     add_column :teachers, :certificate_status, :string
     add_column :teachers, :certificate_location, :string
     remove_column :teachers, :PA, :boolean
-    remove_column :teachers, :USA, :boolean
+    remove_column :teachers, :US, :boolean
   end
 end

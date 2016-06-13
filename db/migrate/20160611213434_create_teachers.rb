@@ -6,7 +6,7 @@ class CreateTeachers < ActiveRecord::Migration
       t.boolean :special_education
       t.boolean :PA
       t.boolean :US
-      t.references :certificate, index: true, foreign_key: true
+      #t.references :certificate, index: true, foreign_key: true
       t.string :name
 
       t.timestamps null: false
