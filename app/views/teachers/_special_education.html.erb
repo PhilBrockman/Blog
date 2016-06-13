@@ -1,12 +1,9 @@
 <h3>Teaching SpEd in PA</h3>
 <p>
-looks like you are trying for SpEd.  You need 
-  <b><% if ["early", "middle"].include?(@teacher.grade_level) %>
+It looks like you will be teaching in the grades range
+  <% if ["early", "middle"].include?(@teacher.grade_level) %>
     preK-8
   <% else %>
     8-12
-  <% end %></b>
-<p>
-  <%if pa %>
-<p>PA requires that you have a special education and a general education certificate </p>
-<% end %>
+  <% end %> for special education.  In addition to needing this special education certificate, you will <u>also</u> need a content certificate.
+</p>

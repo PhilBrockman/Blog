@@ -1,13 +1,8 @@
-<%= render partial: "special_education", :locals => {pa: @PA} if @special_education %>
+<%= render partial: "special_education" if @teacher.special_education %>
 
-<% if @pa_certified %>
-  <%= render partial: "pa" %>
-<% else %>
-  <% if @out_of_state %>
-    <%= render partial: "usa" %>
-  <% else %>
-    <%= render partial: "nowhere" %>
-  <% end %>  
+<% if @teacher.certificate_location.upcase == "PA" %>
+
+a
 <% end %>
 
 For your role (<%= @role.name %>), you need the following <%= pluralize @role.credentials.length, "certificate" %>:
