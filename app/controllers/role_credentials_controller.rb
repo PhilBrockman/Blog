@@ -17,6 +17,16 @@ class RoleCredentialsController < ApplicationController
 	      end
 	  end
 	end
+
+	def destroy
+		@role_credential = RoleCredential.find(params[:id])
+		role = @role_credential.role
+    	@role_credential.destroy
+    	respond_to do |format|
+      		format.html { redirect_to role, notice: 'Role was successfully destroyed.' }
+  		end
+	end
+
 	private
 		def role_credential_params
 			params.require(:role_credential).permit(:role_id, :credential_id)

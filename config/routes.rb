@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   post 'explore' => 'teachers#create'
   resources :role_credentials
   resources :teachers
-  resources :roles do
-    resources :credentials
-  end
+  resources :roles
+  resources :credentials
   
   root 'teachers#explore'
   # The priority is based upon order of creation: first created -> highest priority.

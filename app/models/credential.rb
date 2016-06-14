@@ -6,7 +6,7 @@ class Credential < ActiveRecord::Base
 
   accepts_nested_attributes_for :roles
 
-  validates_presence_of :name, length: { minimum: 3 }
+  validates_presence_of :name, length: { minimum: 3 }, uniqueness: true
   
 #  def self.searchPartial(term)
 #    where("name like ?", "%#{term}%")

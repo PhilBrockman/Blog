@@ -16,38 +16,16 @@
 
   <%= credential.name %> :: 
 
-  <%= link_to 'Destroy Credential', [credential.role, credential],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+  <%  link = RoleCredential.where(:role_id => @role.id, :credential_id => credential.id).first %>
+  <%= link_to 'Unlink Credential', link,  method: :delete, data: { confirm: 'Are you sure?' } %>
   
 </p>
 <% end %>
 
-<h3>Add a New Credential</h3>
-<%= form_for([@role, @role.credentials.build]) do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-</p>
-<p>
-  <%= f.label :required %><br />
-  <%= f.check_box :required %>
-</p>
-    <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<h3>Link to an Existing Credential</h3>
 
-<h3>Add an Existing Credential</h3>
-<ul>
-  < %= TeacherCredential.find(:credential_id => 1)  %>
-  <% [].each do |n| %>
-    <%= form_for([@role, @role.credentials.build]) do |f| %>
-      <li><%= n.name %> :: <%= f.submit "Add Credential" %> :: <%= link_to "edit credential",edit_role_credential_path(n.role, n) %></li>
-      <%= hidden_field(:credential, :name, :value => n.name) %>
-    <% end %>
-  <% end %>
-</ul>
+<%= render :partial => "role_credentials/form" %>
+
 
 <%= link_to 'Edit', edit_role_path(@role) %> |
 <%= link_to 'Back', roles_path %>
