@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
   gem 'pg', '~> 0.18.4'
+  #mailer -- mailgun
+  gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

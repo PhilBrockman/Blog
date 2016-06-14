@@ -6,6 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+#api_key: 'https://api:key-3ax6xnjp29jd6fds4gc373sgvjxteol0@api.mailgun.net/v3/samples.mailgun.org/log'
+#username: ''
+#password: 'Default Password'
+#gmail_username: 'pb.kipp.intern@gmail.com'
+#gmail_password: 'asdfaoeuasdfaoeu'
+
 module Blog
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
