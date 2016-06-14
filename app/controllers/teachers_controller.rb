@@ -7,7 +7,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
     @role    = Role.find(@teacher.role_id)
     @needed_certs = Role.find(@teacher.role_id).credentials.all
-    TeacherMailer.welcome_email(@teacher).deliver
+    TeacherMailer.welcome_email(@teacher).deliver_now
     render :report
   end
 

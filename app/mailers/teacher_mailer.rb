@@ -1,6 +1,6 @@
 class TeacherMailer < ApplicationMailer
 
-  default from: 'the_team@kipp.com'
+  default from: 'the_team@example.com'
  
   def welcome_email(teacher)
   	@teacher = teacher
