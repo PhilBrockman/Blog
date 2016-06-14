@@ -14,7 +14,7 @@ class RolesController < ApplicationController
     #format.html
     #format.json { @credentials = #Credential.search(params[:term]) }
   #end
-  @credential_names = Credential.order('name ASC').all.uniq{|c| c.name}
+  @credentials = Credential.order('name ASC').all.uniq{|c| c.name}
 
   end
 

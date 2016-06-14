@@ -40,9 +40,10 @@
 
 <h3>Add an Existing Credential</h3>
 <ul>
-  <% @credential_names.each do |n| %>
+  < %= TeacherCredential.find(:credential_id => 1)  %>
+  <% [].each do |n| %>
     <%= form_for([@role, @role.credentials.build]) do |f| %>
-      <li><%= n.name %> :: <%= f.submit "Add Credential" %> :: <%= link_to "edit credential", edit_role_credential_path(:id => n.id, :role_id => n.role_id) %></li>
+      <li><%= n.name %> :: <%= f.submit "Add Credential" %> :: <%= link_to "edit credential",edit_role_credential_path(n.role, n) %></li>
       <%= hidden_field(:credential, :name, :value => n.name) %>
     <% end %>
   <% end %>

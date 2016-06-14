@@ -1,10 +1,14 @@
 class CredentialsController < ApplicationController
   before_action :set_role
-#  def create
- #   @credential = @role.credentials.create(credential_params)
-#    
-#      redirect_to role_path(@role)
- # end
+#  
+  def index
+    @credentials = Credential.all
+  end
+
+  def new
+    @credential = @role.credentials.new
+  end
+
   def create
     @credential = @role.credentials.new(credential_params)
 
@@ -20,7 +24,7 @@ class CredentialsController < ApplicationController
   end
   
   def edit
-    @credential = @role.credentials.find(params[:id])
+    @credential = Credential.find(params[:id])
   end
   
   def update

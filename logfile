@@ -19,3 +19,11 @@ STATEMENT:  ALTER TABLE "teachers" ADD CONSTRAINT "fk_rails_285fb7eba5"
 	
 ERROR:  column "USA" of relation "teachers" does not exist
 STATEMENT:  ALTER TABLE "teachers" DROP "USA"
+FATAL:  database "blog_development" does not exist
+ERROR:  database "blog_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "blog_development"
+ERROR:  column teacher_credentials.credential_id does not exist at character 100
+STATEMENT:  SELECT "credentials".* FROM "credentials" INNER JOIN "teacher_credentials" ON "credentials"."id" = "teacher_credentials"."credential_id" WHERE "teacher_credentials"."role_id" = $1
+ERROR:  relation "teacher_credential" does not exist
+STATEMENT:  ALTER TABLE "teacher_credential" ADD "role_id" integer

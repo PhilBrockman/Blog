@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613172038) do
+ActiveRecord::Schema.define(version: 20160614161420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,23 @@ ActiveRecord::Schema.define(version: 20160613172038) do
     t.boolean  "required"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "role_id"
   end
 
-  add_index "credentials", ["role_id"], name: "index_credentials_on_role_id", using: :btree
+  create_table "credentials_roles", id: false, force: :cascade do |t|
+    t.integer "credential_id"
+    t.integer "role_id"
+  end
+
+  add_index "credentials_roles", ["credential_id"], name: "index_credentials_roles_on_credential_id", using: :btree
+  add_index "credentials_roles", ["role_id"], name: "index_credentials_roles_on_role_id", using: :btree
+
+  create_table "role_credentials", force: :cascade do |t|
+    t.integer "credential_id"
+    t.integer "role_id"
+  end
+
+  add_index "role_credentials", ["credential_id"], name: "index_role_credentials_on_credential_id", using: :btree
+  add_index "role_credentials", ["role_id"], name: "index_role_credentials_on_role_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +58,5 @@ ActiveRecord::Schema.define(version: 20160613172038) do
 
   add_index "teachers", ["role_id"], name: "index_teachers_on_role_id", using: :btree
 
-  add_foreign_key "credentials", "roles"
   add_foreign_key "teachers", "roles"
 end

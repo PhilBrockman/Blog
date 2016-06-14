@@ -1,0 +1,11 @@
+<%= form_for(@role_credential) do |f| %>
+	<div class="field">
+		<%= f.select :role_id, Role.all.collect { |r| [ r.name, r.id ] } %>
+	</div>
+	<div class="field">
+		<%= f.select :credential_id, Credential.all.collect { |c| [ c.name, c.id ] } %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

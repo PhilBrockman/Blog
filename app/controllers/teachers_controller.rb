@@ -8,7 +8,6 @@ class TeachersController < ApplicationController
     @role    = Role.find(@teacher.role_id)
     @needed_certs = Role.find(@teacher.role_id).credentials.all
     puts "\n\n\n......\n\n\n"
-    TeacherMailer.send_simple_message
     TeacherMailer.welcome_email(@teacher).deliver_now
     render :report
   end
