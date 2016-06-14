@@ -21,3 +21,4 @@
 config/application_variables.yml
 
 config/application.yml
+tmp
