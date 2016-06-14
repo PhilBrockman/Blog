@@ -29,3 +29,5 @@ ERROR:  relation "teacher_credential" does not exist
 STATEMENT:  ALTER TABLE "teacher_credential" ADD "role_id" integer
 ERROR:  database "kipp_development" already exists
 STATEMENT:  CREATE DATABASE "kipp_development" ENCODING = 'unicode'
+ERROR:  database "kipp_p_development" already exists
+STATEMENT:  CREATE DATABASE "kipp_p_development" ENCODING = 'utf8'

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  devise_scope :admin do
+    get 'sign_in', to: 'devise/sessions#new'
+  end
+
   get 'roles/credentials', to: 'credentials#index'
   get 'explore', to: 'teachers#explore'
   post 'explore' => 'teachers#create'
