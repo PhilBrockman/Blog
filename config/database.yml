@@ -1,3 +1,4 @@
+
 # SQLite version 3.x
 #   gem install sqlite3
 #
@@ -9,12 +10,11 @@
 ##  timeout: 5000
 
 development:
-  adapter: postgresql
+ # adapter: postgresql
   encoding: unicode
-  database: blog_development
-  pool: 5
-  username: kippuser
-  password: md5344fce15dc8c6e1a7bed72978a4efd13
+#  database: kipp_development
+#  pool: 5
+#  username: kippuser
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,10 +23,10 @@ development:
 #  <<: *default
 #  database: db/test.sqlite3
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: blog_development
-  pool: 5
-  username: kippuser
-  password: md5344fce15dc8c6e1a7bed72978a4efd13
+#production:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: blog_development
+#  pool: 5
+#  username: kippuser
+#  password: md5344fce15dc8c6e1a7bed72978a4efd13

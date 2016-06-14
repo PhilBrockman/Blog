@@ -17,3 +17,7 @@
 /tmp
 
 .pass_this_file
+
+config/application_variables.yml
+
+config/application.yml

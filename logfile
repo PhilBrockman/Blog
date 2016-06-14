@@ -27,3 +27,5 @@ ERROR:  column teacher_credentials.credential_id does not exist at character 100
 STATEMENT:  SELECT "credentials".* FROM "credentials" INNER JOIN "teacher_credentials" ON "credentials"."id" = "teacher_credentials"."credential_id" WHERE "teacher_credentials"."role_id" = $1
 ERROR:  relation "teacher_credential" does not exist
 STATEMENT:  ALTER TABLE "teacher_credential" ADD "role_id" integer
+ERROR:  database "kipp_development" already exists
+STATEMENT:  CREATE DATABASE "kipp_development" ENCODING = 'unicode'
