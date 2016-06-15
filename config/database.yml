@@ -21,12 +21,12 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 #test:
-#  <<: *default
-#  database: db/test.sqlite3
+  <<: *default
+  database: kipp_p_test
 
 production:
   <<: *default
   database: kipp_development
 #  pool: 5
-#  username: kippuser
-#  password: md5344fce15dc8c6e1a7bed72978a4efd13
+  username: KIPPUSER
+  password: <%= ENV['KIPP_USER_DATABASE_PASSWORD'] %>
