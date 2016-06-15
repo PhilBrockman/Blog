@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614224741) do
+ActiveRecord::Schema.define(version: 20160615133656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(version: 20160614224741) do
 
   create_table "credentials", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "required"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "note"
+    t.string   "link"
   end
 
   create_table "credentials_roles", id: false, force: :cascade do |t|

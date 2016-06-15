@@ -31,3 +31,4 @@ ERROR:  database "kipp_development" already exists
 STATEMENT:  CREATE DATABASE "kipp_development" ENCODING = 'unicode'
 ERROR:  database "kipp_p_development" already exists
 STATEMENT:  CREATE DATABASE "kipp_p_development" ENCODING = 'utf8'
+FATAL:  database "kipp_p_test" does not exist

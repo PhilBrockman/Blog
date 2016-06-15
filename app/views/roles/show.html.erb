@@ -10,9 +10,6 @@
 <h3>Credentials</h3>
 <% @role.credentials.each do |credential| %>
 <p>
-  <% if credential.required %>
-    <b>Required</b> :: 
-  <% end %>
 
   <%= credential.name %> :: 
 

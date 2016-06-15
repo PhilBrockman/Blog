@@ -6,8 +6,5 @@
 <% end %>
 
 For your role (<%= @role.name %>), you need the following <%= pluralize @role.credentials.length, "certificate" %>:
-<ul>
-  <% @role.credentials.each do |c| %>
-    <li><%= c.name %></li>
-  <% end %>
-</ul>
+
+<%= render partial: "credentials/credential_table", locals: {credentials: @role.credentials} %>

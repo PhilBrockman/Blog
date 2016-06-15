@@ -26,7 +26,7 @@ development:
 
 production:
   <<: *default
-  database: kipp_development
+  database: kipp_production
 #  pool: 5
   username: KIPPUSER
   password: <%= ENV['KIPP_USER_DATABASE_PASSWORD'] %>

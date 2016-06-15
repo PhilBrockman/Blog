@@ -1,4 +1,5 @@
 class CredentialsController < ApplicationController
+  before_filter :authenticate_admin!
   before_action :set_credential, :except => [:create, :new, :index]
   
   def index
@@ -51,6 +52,6 @@ class CredentialsController < ApplicationController
     end
   
     def credential_params
-      params.require(:credential).permit(:name, :required)
+      params.require(:credential).permit(:name, :note, :link)
     end
 end
