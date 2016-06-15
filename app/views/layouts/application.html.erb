@@ -10,9 +10,8 @@
 <%= link_to "teachers", "/"%> | 
 <%= link_to "roles", roles_path %> | 
 <%= link_to "credentials", credentials_path %> <br />
-You are <%= "<b>NOT</b>" if !admin_signed_in? %>logged in.
-<hr />
-<%= yield %>
+<%= render :partial => "layouts/login" %>
+<hr /><%= yield %>
 
 </body>
 </html>
