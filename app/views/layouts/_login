@@ -9,5 +9,5 @@
 <% end %>
 <br />
 
-<p id="alert"><%= flash[:alert] %></p>
-<p id="notice"><%= flash[:notice] %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
