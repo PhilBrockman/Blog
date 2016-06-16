@@ -7,10 +7,11 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
     @role    = Role.find(@teacher.role_id)
     @needed_certs = Role.find(@teacher.role_id).credentials.all
-    puts "\n\n\n......\n\n\n"
-    TeacherMailer.welcome_email(@teacher).deliver_now
+    #puts "\n\n\n......\n\n\n"
+    #TeacherMailer.welcome_email(@teacher).deliver_now
     render :report
   end
+
 
   def register_entry
     @teacher = Teacher.new(teacher_params)
@@ -25,6 +26,8 @@ class TeachersController < ApplicationController
   
   private
     def teacher_params
-      params.require(:teacher).permit(:role_id, :grade_level, :special_education, :certificate_location,:certificate_status, :name)
+      params.require(:teacher).permit(:role_id, :grade_level, :special_education, 
+        :certificate_location,:certificate_status, :name,
+        :credential_ids => [])
     end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'roles/credentials', to: 'credentials#index'
   get 'explore', to: 'teachers#explore'
   post 'explore' => 'teachers#create'
+  post 'email_me' => 'credentials#email_me'
   resources :role_credentials
   resources :teachers
   resources :roles

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to kipp.com, <%= @credentials.count %></h1>
+    <p>
+      Here are the credentials you need!
+    </p>
+    <table class="table table-bordered">
+		<thead>
+		  <tr>
+		    <td>Credential Name</td>
+		    <td>Web Link</td>
+		    <td>Notes</td>
+	    </tr>
+	  </thead>
+	  <tbody>
+		<% @credentials.each do |c| %>
+			<tr> 
+			  	<%= render partial: "credentials/credential", locals: {credential: c} %>
+		  	</tr>
+		<% end %>
+	  </tbody>
+	</table>
+	 Thanks
+  </body>
+</html>
