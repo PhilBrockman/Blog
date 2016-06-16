@@ -24,7 +24,7 @@ before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
     @teacher.save
 
     foo = TeacherMailer.send_info('phil.brockman+now@gmail.com', @teacher).deliver_now
-    redirect_to root_url, notice: "email sent!"
+    redirect_to "/", notice: "email sent!"
   end
 
 
