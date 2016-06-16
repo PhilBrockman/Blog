@@ -8,7 +8,7 @@
     <%= f.label :role_id, "What is your position/teaching assignment?"%>
     <%= f.select :role_id, roles_array, :include_blank => true %>
   </p>
-
+<!--
   <p>
     <%= f.label :grade_level, "What grade level is your teaching assignment?" %>
     <% grade_levels = [["PreK - 4", "early"], ["5 - 6", "middle"], ["7 - 12", "high"]] %>
@@ -20,10 +20,9 @@
     <%= f.label :special_education, "Yes", :value => "true"  %><%= f.radio_button :special_education, true %>
     <%= f.label :special_education, "No", :value => "false"  %><%= f.radio_button :special_education, false %>
   </p>
-
+-->
   <p>
-    <%= f.label :certificate_status, "Do you hold a current teaching certificate?" %>
-
+<%= f.label :certificate_status, "Do you hold a current teaching certificate?" %>
 <%= f.label :certificate_status, "Yes", :value => "yes"  %><%= f.radio_button :certificate_status, "yes" %>
 <%= f.label :certificate_status, "No", :value => "no"  %><%= f.radio_button :certificate_status, "no" %>
 <%= f.label :certificate_status, "Certificate is expired or invalid", :value => "expired"  %><%= f.radio_button :certificate_status, "expired" %>

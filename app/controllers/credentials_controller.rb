@@ -1,6 +1,6 @@
 class CredentialsController < ApplicationController
   before_filter :authenticate_admin!
-  before_action :set_credential, :except => [:create, :new, :index]
+  before_action :set_credential, :except => [:create, :new, :index, :email_me]
   
   def index
     @credentials = Credential.all
@@ -44,6 +44,19 @@ class CredentialsController < ApplicationController
     @credential.destroy
     redirect_to credential_path(@credential)    
   end
+
+
+
+  def email_me
+    @credentials = Credential.find(credential_params[:credential_ids])
+
+    if TeacherMailer.send_info('phil.brockman@gmail.com', @credentials).deliver_later
+      #format.html { redirect_to root_url, notice: 'Credentials were successfully sent!'}
+      redirect_to root_url
+    else
+      format.html {redirect_to '/', alert: 'BOOOOO'}
+    end
+  end
  
   private
 
@@ -52,6 +65,6 @@ class CredentialsController < ApplicationController
     end
   
     def credential_params
-      params.require(:credential).permit(:name, :note, :link)
+      params.require(:credential).permit(:name, :note, :link, :credential_ids => [])
     end
 end

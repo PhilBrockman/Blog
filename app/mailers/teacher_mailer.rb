@@ -1,10 +1,15 @@
 class TeacherMailer < ApplicationMailer
 
-  default from: 'the_team@example.com'
+  default from: 'test@example.com'
  
   def welcome_email(teacher)
   	@teacher = teacher
     mail(to: "phil.brockman@gmail.com", subject: 'Welcome to My Awesome Site')
+  end
+
+  def send_info(email, credentials)
+  	@credentials = credentials
+  	mail(to: email, subject: 'KIPP -- Certification Information')
   end
 
   def send_simple_message
