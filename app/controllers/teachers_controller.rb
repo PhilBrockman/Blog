@@ -1,9 +1,9 @@
 class TeachersController < ApplicationController
-
+before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.all.reverse
   end
-  
+
   def new
     @teacher = Teacher.new
   end
@@ -23,7 +23,7 @@ class TeachersController < ApplicationController
     @credentials = @teacher.credentials
     @teacher.save
 
-    foo = TeacherMailer.send_info('phil.brockman+now@gmail.com', @credentials).deliver_now
+    foo = TeacherMailer.send_info('phil.brockman+now@gmail.com', @teacher).deliver_now
     redirect_to root_url, notice: "email sent!"
   end
 
@@ -42,7 +42,7 @@ class TeachersController < ApplicationController
   private
     def teacher_params
       params.require(:teacher).permit(:role_id, :grade_level, :special_education, 
-        :certificate_location,:certificate_status, :name,
+        :certificate_location,:certificate_status, :name, :email,
         :credential_ids => [])
     end
 end

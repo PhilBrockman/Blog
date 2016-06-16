@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to kipp.com, <%= @credentials.count %></h1>
+    <h1>Welcome to kipp.com, <%= @teacher.name %></h1>
     <p>
       Here are the credentials you need!
     </p>
@@ -17,7 +17,7 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-		<% @credentials.each do |c| %>
+		<% @teacher.credentials.each do |c| %>
 			<tr> 
 			  	<%= render partial: "credentials/credential", locals: {credential: c} %>
 		  	</tr>
