@@ -1,4 +1,9 @@
 class TeachersController < ApplicationController
+
+  def index
+    @teachers = Teacher.all
+  end
+  
   def new
     @teacher = Teacher.new
   end
@@ -10,6 +15,16 @@ class TeachersController < ApplicationController
     #puts "\n\n\n......\n\n\n"
     #TeacherMailer.welcome_email(@teacher).deliver_now
     render :report
+  end
+
+
+  def email_me
+    @teacher = Teacher.new(teacher_params)
+    @credentials = @teacher.credentials
+    @teacher.save
+
+    foo = TeacherMailer.send_info('phil.brockman+now@gmail.com', @credentials).deliver_now
+    redirect_to root_url, notice: "email sent!"
   end
 
 

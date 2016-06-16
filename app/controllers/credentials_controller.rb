@@ -45,18 +45,6 @@ class CredentialsController < ApplicationController
     redirect_to credential_path(@credential)    
   end
 
-
-
-  def email_me
-    @credentials = Credential.find(credential_params[:credential_ids])
-
-    if TeacherMailer.send_info('phil.brockman@gmail.com', @credentials).deliver_later
-      #format.html { redirect_to root_url, notice: 'Credentials were successfully sent!'}
-      redirect_to root_url
-    else
-      format.html {redirect_to '/', alert: 'BOOOOO'}
-    end
-  end
  
   private
 

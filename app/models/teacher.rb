@@ -1,3 +1,5 @@
 class Teacher < ActiveRecord::Base
-  #belongs_to :role
+	has_one :role
+	has_many :teacher_credentials
+	has_many :credentials, :through => :teacher_credentials
 end

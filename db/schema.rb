@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615133656) do
+ActiveRecord::Schema.define(version: 20160616175032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20160615133656) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "teacher_credentials", force: :cascade do |t|
+    t.integer  "teacher_id"
+    t.integer  "credential_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "teacher_credentials", ["credential_id"], name: "index_teacher_credentials_on_credential_id", using: :btree
+  add_index "teacher_credentials", ["teacher_id"], name: "index_teacher_credentials_on_teacher_id", using: :btree
+
   create_table "teachers", force: :cascade do |t|
     t.integer  "role_id"
     t.string   "grade_level"
@@ -73,9 +83,12 @@ ActiveRecord::Schema.define(version: 20160615133656) do
     t.datetime "updated_at",           null: false
     t.string   "certificate_status"
     t.string   "certificate_location"
+    t.string   "email"
   end
 
   add_index "teachers", ["role_id"], name: "index_teachers_on_role_id", using: :btree
 
+  add_foreign_key "teacher_credentials", "credentials"
+  add_foreign_key "teacher_credentials", "teachers"
   add_foreign_key "teachers", "roles"
 end
