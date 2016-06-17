@@ -1,0 +1,146 @@
+
+<!-- Modified from KIPP.org -->
+<!-- Dropdown Menu, adapted from  http://jonraasch.com/demo/huge-dropdown-menu -->
+
+<style type="text/css">
+.menuWrapper {
+	clear:both;
+	width:940px;
+	margin:0 auto;
+	background-color:#60A2D7;
+	z-index: 1000 !important;
+}
+#logo {
+	float:left;
+	width:220px;
+	height:54px;
+	margin:0px;
+	padding:12px 0px 0px 15px;
+	background-color:#60A2D7;
+}
+#menu{
+	white-space:nowrap !important;
+	float:left;
+	width:705px;
+	height:66px;
+	margin:0;
+	padding:0px;
+	background-color:#60A2D7;
+	font-family:"FullerSansDT",Calibri, Helvetica, sans-serif; 
+	font-size: 14px;
+	color:#27180e;
+	position:relative;z-index:999;
+}
+
+#main-nav {
+	position: relative;
+	list-style: none;
+	padding: 0;
+}
+
+#main-nav .main-nav-item {
+	display: inline;
+}
+
+#main-nav .main-nav-tab {
+	position: relative;
+	float: left;
+	white-space:nowrap !important;
+	height: 30px;
+	padding: 19px 0px 17px 0px; 
+
+	font-size: 16px;
+
+	font-weight:bold;
+	line-height: 30px;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none;
+}
+
+#main-nav .main-nav-item-active .main-nav-tab {
+	color: #A7CFEE;   /*Pale Blue */
+	/* background-color: #60A2D7; Dark Blue */
+}
+
+#main-nav .separator {
+	display: inline;
+	float: left;
+	white-space:nowrap;
+	height: 30px;
+	padding: 18px 10px 17px 10px; 
+	font-size:14px;
+	font-weight:normal;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+	color: #A7CFEE;   /*Pale Blue */
+}
+
+#main-nav .main-nav-dd {
+	position: absolute;
+	top: 65px;  /* orig 50px */
+	left: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0 0 0;
+	background-color: #60A2D7;
+	display: block;
+	display: none;
+	opacity:0.9;
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+#main-nav .main-nav-item-active .main-nav-dd {
+	display: block;
+}
+
+#main-nav .main-nav-dd-column {
+	font-size: 14px;
+	min-width: 100px;
+	white-space:nowrap;
+	display: block;
+	border-left: 1px solid #ddd;
+	margin:1px;
+	*float: left;
+	*border-left: 0;
+}
+
+#main-nav .main-nav-dd-column:first-child {
+	border-left: 0;
+}
+
+#main-nav .main-nav-dd h3 {
+	font-size: 14px;
+	/*color: #86c6d7;*/
+}
+
+#main-nav .main-nav-dd a {
+	margin:0px;
+	padding:5px 15px 5px 10px;
+	display: block;
+	color: #FFF;
+	font-weight: normal;
+	text-decoration: none;
+	border-bottom: 1px solid #85b8e8;
+}
+
+#main-nav .main-nav-dd a:hover {
+
+	color: #d7f0ff; /* #d7f0ff; Very Pale Blue Text */
+	text-decoration: none;
+	background: #71B3E8;   /* # Not-so-dark Blue Background */
+	opacity:1;
+}
+
+#main-nav .main-nav-dd ul {
+	list-style: none;
+	padding: 0;
+}
+
+#main-nav .main-nav-dd hr {
+	border: 1px dotted #ddd;
+}
+
+.hilite {background: #ffff66;}
+
+</style>

@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>KIPP Schools</title>
+  <%= stylesheet_link_tag    'kipp' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,9 +14,12 @@
 <%= link_to "sent mail", "/sent_mail" %> |
 <%= link_to "learn more about KIPP", "https://form.jotform.com/61676164998171" %><br />
 <%= render :partial => "layouts/login" %>
+<hr />
+<div id = "wraper">
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<hr /><%= yield %>
-
+<%= yield %>
+</div>
+<content>
 </body>
 </html>

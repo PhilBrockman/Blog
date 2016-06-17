@@ -1,0 +1,244 @@
+
+<!-- Modified from KIPP.org -->
+<!-- Dropdown Menu, adapted from  http://jonraasch.com/demo/huge-dropdown-menu -->
+
+<style type="text/css">
+.menuWrapper {
+	clear:both;
+	width:940px;
+	margin:0 auto;
+	background-color:#60A2D7;
+	z-index: 1000 !important;
+}
+#logo {
+	float:left;
+	width:220px;
+	height:54px;
+	margin:0px;
+	padding:12px 0px 0px 15px;
+	background-color:#60A2D7;
+}
+#menu{
+	white-space:nowrap !important;
+	float:left;
+	width:705px;
+	height:66px;
+	margin:0;
+	padding:0px;
+	background-color:#60A2D7;
+	font-family:"FullerSansDT",Calibri, Helvetica, sans-serif; 
+	font-size: 14px;
+	color:#27180e;
+	position:relative;z-index:999;
+}
+
+#main-nav {
+	position: relative;
+	list-style: none;
+	padding: 0;
+}
+
+#main-nav .main-nav-item {
+	display: inline;
+}
+
+#main-nav .main-nav-tab {
+	position: relative;
+	float: left;
+	white-space:nowrap !important;
+	height: 30px;
+	padding: 19px 0px 17px 0px; 
+
+	font-size: 16px;
+
+	font-weight:bold;
+	line-height: 30px;
+	color: #FFF;
+	text-align: center;
+	text-decoration: none;
+}
+
+#main-nav .main-nav-item-active .main-nav-tab {
+	color: #A7CFEE;   /*Pale Blue */
+	/* background-color: #60A2D7; Dark Blue */
+}
+
+#main-nav .separator {
+	display: inline;
+	float: left;
+	white-space:nowrap;
+	height: 30px;
+	padding: 18px 10px 17px 10px; 
+	font-size:14px;
+	font-weight:normal;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+	color: #A7CFEE;   /*Pale Blue */
+}
+
+#main-nav .main-nav-dd {
+	position: absolute;
+	top: 65px;  /* orig 50px */
+	left: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0 0 0;
+	background-color: #60A2D7;
+	display: block;
+	display: none;
+	opacity:0.9;
+	box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+#main-nav .main-nav-item-active .main-nav-dd {
+	display: block;
+}
+
+#main-nav .main-nav-dd-column {
+	font-size: 14px;
+	min-width: 100px;
+	white-space:nowrap;
+	display: block;
+	border-left: 1px solid #ddd;
+	margin:1px;
+	*float: left;
+	*border-left: 0;
+}
+
+#main-nav .main-nav-dd-column:first-child {
+	border-left: 0;
+}
+
+#main-nav .main-nav-dd h3 {
+	font-size: 14px;
+	/*color: #86c6d7;*/
+}
+
+#main-nav .main-nav-dd a {
+	margin:0px;
+	padding:5px 15px 5px 10px;
+	display: block;
+	color: #FFF;
+	font-weight: normal;
+	text-decoration: none;
+	border-bottom: 1px solid #85b8e8;
+}
+
+#main-nav .main-nav-dd a:hover {
+
+	color: #d7f0ff; /* #d7f0ff; Very Pale Blue Text */
+	text-decoration: none;
+	background: #71B3E8;   /* # Not-so-dark Blue Background */
+	opacity:1;
+}
+
+#main-nav .main-nav-dd ul {
+	list-style: none;
+	padding: 0;
+}
+
+#main-nav .main-nav-dd hr {
+	border: 1px dotted #ddd;
+}
+
+.hilite {background: #ffff66;}
+
+</style>
+/* line 1, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+@-webkit-viewport{width:device-width;zoom:1.0}@-moz-viewport{width:device-width;zoom:1.0}@-ms-viewport{width:device-width;zoom:1.0}@-o-viewport{width:device-width;zoom:1.0}@viewport{width:device-width;zoom:1.0}html{overflow-y:auto}img,audio,video,canvas{max-width:100%}.container{max-width:40em;width:88%;margin-left:auto;margin-right:auto}table{max-width:100%;border-collapse:collapse;border-spacing:0}.table{width:100%;margin-bottom:1.52941em}.table th,.table td{padding:0.47059em;text-align:left;border-top:0.07143em solid #b8b8b8}.table th{font-weight:bold;vertical-align:bottom}.table td{vertical-align:top}.table thead:first-child tr th,.table thead:first-child tr td{border-top:0}.table tbody+tbody{border-top:0.14286em solid #b8b8b8}.table-condensed th,.table-condensed td{padding:0.29412em}.table-bordered{border:0.07143em solid #b8b8b8;border-collapse:separate;*border-collapse:collapsed;border-radius:0.47059em}.table-bordered th+th,.table-bordered td+td,.table-bordered th+td,.table-bordered td+th{border-left:0.07143em solid #b8b8b8}.table-bordered thead:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child td{border-top:0}.table-bordered thead:first-child tr:first-child th:first-child,.table-bordered tbody:first-child tr:first-child td:first-child{border-radius:0.47059em 0 0 0}.table-bordered thead:first-child tr:first-child th:last-child,.table-bordered tbody:first-child tr:first-child td:last-child{border-radius:0 0.47059em 0 0}.table-bordered thead:last-child tr:last-child th:first-child,.table-bordered tbody:last-child tr:last-child td:first-child{border-radius:0 0 0 0.47059em}.table-bordered thead:last-child tr:last-child th:last-child,.table-bordered tbody:last-child tr:last-child td:last-child{border-radius:0 0 0.47059em 0}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+*= require jquery-ui/datepicker
