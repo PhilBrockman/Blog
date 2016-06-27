@@ -8,21 +8,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id = "container">
+<fdiv id = "container">
+	<fdiv id = "header">
+		<p class="centered"><%= link_to image_tag("KIPP_logo", id: "main_title"), "/" %></p>
+		<%= link_to "Certificate Search", "/"%>
+		<% if admin_signed_in? %>
+		| <%= link_to "roles", roles_path %> | <%= link_to "credentials", credentials_path %> |<%= link_to "sent mail", "/sent_mail" %><% end %> 
+		|
+		<%= link_to "learn more about KIPP", "https://form.jotform.com/61676164998171" %><br />
+		<%= render :partial => "layouts/login" %>
+	</div>
 
-< %= link_to image_tag("KIPP_logo", id: "main_title"), "/" %>
-<%= image_tag("KIPP_logo") %>
-<%= link_to "Certificate Search", "/"%>
-<% if admin_signed_in? %>
-| <%= link_to "roles", roles_path %> | <%= link_to "credentials", credentials_path %> |<%= link_to "sent mail", "/sent_mail" %><% end %> 
-|
-<%= link_to "learn more about KIPP", "https://form.jotform.com/61676164998171" %><br />
-<%= render :partial => "layouts/login" %>
-<hr />
-<p id = "notice" class = "notice"><%= notice %></p>
-<p id = "alert" class = "alert"><%= alert %></p>
-<%= yield %>
+	<fdiv id = "content">
+		<p id = "notice" class = "notice"><%= notice %></p>
+		<p id = "alert" class = "alert"><%= alert %></p>
+		<%= yield %>
+	</div>
 </div>
-<content>
 </body>
 </html>

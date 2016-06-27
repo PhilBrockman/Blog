@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #F4EFEB;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -19,27 +19,39 @@ pre {
 }
 
 a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
+  color: #60A2D7;
+  text-decoration: none;
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+  text-decoration: none;
+  color:#A7CFEE;
   }
 }
 
-div {
+p.centered {
+     text-align: center;
+}
+
+fdiv {
+  display: block;
+  display: block;
+
   &.field, &.actions {
     margin-bottom: 10px;
   }
   &#container {
-    border: 3px solid black;
     margin: auto;
     width: 800px;
-    padding: 5px;
+  }
+  &#header {
+    background-color:#A7CFEE;
+    vertical-align: top;
+    font-size:120%;
+  }
+  &#content {
+    font-size: 80%;
+    padding: 7px;
+    background-color: #FFFFFF;
   }
 }
 
