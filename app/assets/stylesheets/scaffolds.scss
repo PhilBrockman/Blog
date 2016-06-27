@@ -37,18 +37,16 @@ div {
   }
   &#container {
     border: 3px solid black;
-    margin:auto;
+    margin: auto;
     width: 800px;
     padding: 5px;
   }
 }
 
-img#main_title{
+img{
+  &#main_title{
   width:750px;
   margin: auto;
-  &:hover {
-    color: #fff;
-    background-color: #fff;
   }
 }
 
