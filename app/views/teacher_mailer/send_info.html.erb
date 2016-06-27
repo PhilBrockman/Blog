@@ -4,9 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to kipp.com, <%= @teacher.name %></h1>
+    <h1>Welcome to KIPP, <%= @teacher.name %></h1>
+    <%= render partial: "credentials/local_notification" %>
     <p>
-      Here are the credentials you need!
+      Here are the credentials you requested.
     </p>
     <table class="table table-bordered">
 		<thead>

@@ -11,13 +11,8 @@ class RolesController < ApplicationController
   # GET /roles/1
   # GET /roles/1.json
   def show
-    #respond_to do |format|
-    #format.html
-    #format.json { @credentials = #Credential.search(params[:term]) }
-  #end
-  @credentials = Credential.order('name ASC').all.uniq{|c| c.name}
-  @role_credential = @role.role_credentials.new
-
+    @credentials = Credential.order('name ASC').all.uniq{|c| c.name}
+    @role_credential = @role.role_credentials.new
   end
 
   # GET /roles/new

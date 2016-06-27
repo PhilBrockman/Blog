@@ -1,9 +1,6 @@
-<p>
-  <strong>Name:</strong>
-  <%= @role.name %>
-</p>
+<h3><%= @role.name %></h3>
 
-<h3>Credentials</h3>
+<b><%= pluralize @role.credentials.length, "credential" %> required for this position:</b>
 <% @role.credentials.each do |credential| %>
 <p>
 
@@ -15,9 +12,10 @@
 </p>
 <% end %>
 
-<h3>Link to an Existing Credential</h3>
+<hr />
+<b>Attach a Credential</b>
 
-<%= render :partial => "role_credentials/form" %>
+<%= render :partial => "role_credentials/form", locals: {role: @role} %>
 
 
 <%= link_to 'Edit', edit_role_path(@role) %> |

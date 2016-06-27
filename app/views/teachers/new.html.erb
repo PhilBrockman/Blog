@@ -1,4 +1,4 @@
-<h3>Welcome!</h3>
+<h2 style = "text-align:center">Welcome!</h2>
 
 <p>Please fill in the following information to receive the next steps for Pennsylvaia certification.</p>
 
@@ -9,18 +9,6 @@
     <%= f.select :role_id, roles_array, :include_blank => true %>
   </p>
 <!--
-  <p>
-    <%= f.label :grade_level, "What grade level is your teaching assignment?" %>
-    <% grade_levels = [["PreK - 4", "early"], ["5 - 6", "middle"], ["7 - 12", "high"]] %>
-    <%= f.select :grade_level, grade_levels %>
-  </p>
-
-  <p>
-    <%= f.label :special_education, "Will you be teaching special education or be providing learning support?" %>
-    <%= f.label :special_education, "Yes", :value => "true"  %><%= f.radio_button :special_education, true %>
-    <%= f.label :special_education, "No", :value => "false"  %><%= f.radio_button :special_education, false %>
-  </p>
--->
   <p>
 <%= f.label :certificate_status, "Do you hold a current teaching certificate?" %>
 <%= f.label :certificate_status, "Yes", :value => "yes"  %><%= f.radio_button :certificate_status, "yes" %>
@@ -34,9 +22,9 @@
 <%= f.label :certificate_location, "PA", :value => "PA"  %><%= f.radio_button :certificate_location, "PA" %>
 <%= f.label :certificate_location, "Another State", :value => "USA"  %><%= f.radio_button :certificate_location, "USA" %>
 <%= f.label :certificate_location, "International/Other", :value => "other"  %><%= f.radio_button :certificate_location, "other" %>
-  </p>
+  </p>-->
 
   <p>
-    <%= f.submit %>
+    <%= f.submit "Search for Certificates" %>
   </p>
 <% end %>

@@ -41,8 +41,7 @@ before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
   
   private
     def teacher_params
-      params.require(:teacher).permit(:role_id, :grade_level, :special_education, 
-        :certificate_location,:certificate_status, :name, :email,
+      params.require(:teacher).permit(:role_id, :name, :email,
         :credential_ids => [])
     end
 end
