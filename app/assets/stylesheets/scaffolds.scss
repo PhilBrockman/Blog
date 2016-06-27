@@ -35,6 +35,10 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+  &#container {
+    background-color:red;
+    min-width: 800px;
+  }
 }
 
 #alert {
