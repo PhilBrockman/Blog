@@ -24,17 +24,17 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  config.action_mailer.default_url_options = { :host => 'smtp.mailgun.org' }
+  config.action_mailer.default_url_options = { :host => 'smtp.gmail.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :address              => "smtp.mailgun.org",  
-      :port                 => 587,
-      :domain               => "sandbox5e68034d231a411081fcc172d138aecc.mailgun.org",
-      :user_name            => "postmaster@sandbox5e68034d231a411081fcc172d138aecc.mailgun.org",
-      :password             => "629e9a612e670f81a6e96d970c03f370",
-      :authentication       => 'plain',
-      :enable_starttls_auto => true
-  }
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: "example.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV['MAIL_USER'],
+  password:  ENV['MAIL_PASS']
+}
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
