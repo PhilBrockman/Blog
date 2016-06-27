@@ -24,3 +24,5 @@ logfile
 logfile
 
 config/environments/development.rb
+
+recaptcha_secrets.env

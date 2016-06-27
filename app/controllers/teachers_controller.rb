@@ -21,10 +21,14 @@ before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
   def email_me
     @teacher = Teacher.new(teacher_params)
     @credentials = @teacher.credentials
-    @teacher.save
-
-    foo = TeacherMailer.send_info('phil.brockman+now@gmail.com', @teacher).deliver_now
-    redirect_to "/", notice: "email sent!"
+    if verify_recaptcha(model: @teacher) && @teacher.save
+      foo = TeacherMailer.send_info(@teacher.email, @teacher).deliver_now
+      redirect_to "/", notice: "email sent!"
+    else
+      @role    = Role.find(@teacher.role_id)
+      @needed_certs = Role.find(@teacher.role_id).credentials.all
+      render :report
+    end
   end
 
 

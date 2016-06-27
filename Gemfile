@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "rateaux", '~> 1.6.0'
+gem "recaptcha", require: "recaptcha/rails"
 
 # gem 'jquery-ui-rails', '~> 5.0.5'
 
