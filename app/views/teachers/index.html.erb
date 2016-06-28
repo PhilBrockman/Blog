@@ -1,29 +1,7 @@
 
-Current time:  <%= Time.now.to_formatted_s(:long) %>
- 	<table class="table table-bordered">
-		<thead>
-		  <tr>
-		  	<td>Date</td>
-		    <td>Teacher Name</td>
-		    <td>Email</td>
-		    <td>Sent Certifications</td>
-	    </tr>
-	  </thead>
-	  <tbody>
-		<% @teachers.each do |t| %>
-			<tr> 
-				<td><%= t.created_at.to_formatted_s(:long) %></td>
-				<td><%= t.name %></td>
-				<td><%= t.email %></td>
-				<td>
-					<ol>
-					<% t.credentials.each do |c| %>
-						<li><%= c.name %></li>
-					<% end %>
-					</ol>
-				</td>
-		  	</tr>
-		<% end %>
-	  </tbody>
 
-</table>
+<p>Current time:  <i><%= Time.now.to_formatted_s(:long) %></i></p>
+
+<%= will_paginate @teachers %>
+
+<%= render partial: "corresponding", locals: {teachers: @teachers} %>

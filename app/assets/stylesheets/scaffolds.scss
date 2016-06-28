@@ -32,8 +32,11 @@ p.centered {
      text-align: center;
 }
 
+div.pagination{
+  display:inline;
+}
+
 fdiv {
-  display: block;
   display: block;
 
   &.field, &.actions {

@@ -1,7 +1,13 @@
 class TeachersController < ApplicationController
 before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
+DEFAULT_PER_PAGE = 5
   def index
-    @teachers = Teacher.all.reverse
+    if params[:q]
+      @teachers = Teacher.search(params[:q]).paginate(page: params[:page], per_page: (params[:per_page] || DEFAULT_PER_PAGE))
+    else
+      @teachers = Teacher.order('created_at DESC').paginate(page: params[:page], per_page: (params[:per_page] || DEFAULT_PER_PAGE))
+    end
+
   end
 
   def new
@@ -45,7 +51,7 @@ before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
   
   private
     def teacher_params
-      params.require(:teacher).permit(:role_id, :name, :email,
+      params.require(:teacher).permit(:role_id, :page, :per_page, :q, :name, :email,
         :credential_ids => [])
     end
 end

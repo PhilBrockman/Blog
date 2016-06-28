@@ -1,0 +1,5 @@
+<%= form_tag("/sent_mail", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= search_field_tag(:q, params[:q]) %>
+  <%= submit_tag("Search") %>
+<% end %>
