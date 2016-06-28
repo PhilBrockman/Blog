@@ -2,6 +2,10 @@
 
 <p>Current time:  <i><%= Time.now.to_formatted_s(:long) %></i></p>
 
-<%= will_paginate @teachers %>
 
-<%= render partial: "corresponding", locals: {teachers: @teachers} %>
+<% if @teachers.length > 1%>
+	<%= will_paginate @teachers %>
+	<%= render partial: "corresponding", locals: {teachers: @teachers} %>
+<% else %>
+	No results found matching <b><%= params[:q] %></b>.  You may <%= link_to "clear", "/sent_mail" %> this search.
+<% end %>
