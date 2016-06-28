@@ -3,7 +3,7 @@
 <p>Current time:  <i><%= Time.now.to_formatted_s(:long) %></i></p>
 
 
-<% if @teachers.length > 1%>
+<% if @teachers.length > 0%>
 	<%= will_paginate @teachers %>
 	<%= render partial: "corresponding", locals: {teachers: @teachers} %>
 <% else %>

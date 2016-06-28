@@ -5,8 +5,7 @@ class Teacher < ActiveRecord::Base
 	validates :name, presence: true
 	validates :email, presence: true
 	
-	def self.search(search)
-		s = search.upcase
-		where("upper(name) LIKE ? OR upper(email) LIKE ?", "%#{s}%", "%#{s}%")
+	def self.partial_search(search)
+		where("name ILIKE ? OR email ILIKE ?", "%#{search}%", "%#{search}%")
 	end
 end

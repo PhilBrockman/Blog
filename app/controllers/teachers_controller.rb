@@ -3,11 +3,10 @@ before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
 DEFAULT_PER_PAGE = 5
   def index
     if params[:q]
-      @teachers = Teacher.search(params[:q]).paginate(page: params[:page], per_page: (params[:per_page] || DEFAULT_PER_PAGE))
+      @teachers = Teacher.partial_search(params[:q]).paginate(page: params[:page], per_page: (params[:per_page] || DEFAULT_PER_PAGE))
     else
       @teachers = Teacher.order('created_at DESC').paginate(page: params[:page], per_page: (params[:per_page] || DEFAULT_PER_PAGE))
     end
-
   end
 
   def new
