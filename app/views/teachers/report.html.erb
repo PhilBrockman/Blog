@@ -5,5 +5,4 @@ Commented because at this point, all info about special education certificates s
 <p>For your role (<%= @role.name %>), you need <%= pluralize @role.credentials.length, "certificate" %>.  If you would like to be emailed a copy of these results, look below the table for instructions.</p>
 
 <%= render partial: "credentials/local_notification" %>
-
-<%= render partial: "credentials/credential_table", locals: {credentials: @role.credentials} %>
+<%= render partial: "credentials/credential_table", locals: {credentials: @role.credentials, active: @id_list} %>

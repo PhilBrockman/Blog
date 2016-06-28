@@ -14,27 +14,29 @@ DEFAULT_PER_PAGE = 5
   end
   
   def create
-    begin
+    #begin
       @teacher = Teacher.new(teacher_params)
       @role    = Role.find(@teacher.role_id)
       @needed_certs = Role.find(@teacher.role_id).credentials.all
       render :report
-    rescue
-      flash[:alert] = "Please select a valid role."
-      explore
-    end
+    #rescue
+    #  flash[:alert] = "Please select a valid role."
+    #  explore
+    #end
   end
 
 
   def email_me
     @teacher = Teacher.new(teacher_params)
     @credentials = @teacher.credentials
+
     if @credentials.length > 0 && verify_recaptcha(model: @teacher) && @teacher.save
       foo = TeacherMailer.send_info(@teacher.email, @teacher).deliver_now
       redirect_to "/", notice: "email sent!"
     else
       @role    = Role.find(@teacher.role_id)
       @needed_certs = Role.find(@teacher.role_id).credentials.all
+      @id_list =  params[:teacher][:credential_ids]
       render :report
     end
   end
