@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins#, :skip => [:registrations] 
   devise_scope :admin do
     get 'sign_in', to: 'devise/sessions#new'
     get 'sign_out', to: 'logout'

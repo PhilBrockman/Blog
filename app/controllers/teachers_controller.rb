@@ -30,7 +30,7 @@ DEFAULT_PER_PAGE = 5
   def email_me
     @teacher = Teacher.new(teacher_params)
     @credentials = @teacher.credentials
-    if verify_recaptcha(model: @teacher) && @teacher.save
+    if @credentials.length > 0 && verify_recaptcha(model: @teacher) && @teacher.save
       foo = TeacherMailer.send_info(@teacher.email, @teacher).deliver_now
       redirect_to "/", notice: "email sent!"
     else

@@ -24,7 +24,7 @@ a {
 
   &:hover {
   text-decoration: none;
-  color:#A7CFEE;
+  color:#4082B7;
   }
 }
 
@@ -38,6 +38,7 @@ div.pagination{
 
 fdiv {
   display: block;
+    padding: 7px;
 
   &.field, &.actions {
     margin-bottom: 10px;
@@ -53,7 +54,6 @@ fdiv {
   }
   &#content {
     font-size: 80%;
-    padding: 7px;
     background-color: #FFFFFF;
   }
 }

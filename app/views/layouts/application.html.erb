@@ -20,7 +20,7 @@
 	</div>
 
 	<fdiv id = "content">
-		<p id = "notice" class = "notice"><%= notice %></p>
+		<p id = "notice" class = "notice"><%= notice || flash[:notice] %></p>
 		<p id = "alert" class = "alert"><%= alert || flash[:alert] %></p>
 		<% flash.clear %>
 		<%= yield %>
