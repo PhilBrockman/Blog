@@ -15,12 +15,15 @@ DEFAULT_PER_PAGE = 5
   end
   
   def create
-    @teacher = Teacher.new(teacher_params)
-    @role    = Role.find(@teacher.role_id)
-    @needed_certs = Role.find(@teacher.role_id).credentials.all
-    #puts "\n\n\n......\n\n\n"
-    #TeacherMailer.welcome_email(@teacher).deliver_now
-    render :report
+    begin
+      @teacher = Teacher.new(teacher_params)
+      @role    = Role.find(@teacher.role_id)
+      @needed_certs = Role.find(@teacher.role_id).credentials.all
+      render :report
+    rescue
+      flash[:alert] = "Please select a valid role."
+      explore
+    end
   end
 
 

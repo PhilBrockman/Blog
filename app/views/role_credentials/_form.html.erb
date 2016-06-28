@@ -8,7 +8,8 @@
 	</div>
 	
 	<div class="field">
-		<%= f.select :credential_id, Credential.all.collect { |c| [ c.name, c.id ] } %>
+		<% r = Credential.all - role.credentials %>
+		<%= f.select :credential_id, r.collect { |c| [ c.name, c.id ] } %>
 		<%= f.submit "Attach Credential" %>
 	</div>
 <% end %>

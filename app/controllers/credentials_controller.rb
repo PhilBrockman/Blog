@@ -3,7 +3,7 @@ class CredentialsController < ApplicationController
   before_action :set_credential, :except => [:create, :new, :index, :email_me]
   
   def index
-    @credentials = Credential.all
+    @credentials = Credential.order('name ASC')
   end
 
   def new
@@ -42,7 +42,7 @@ class CredentialsController < ApplicationController
   
   def destroy
     @credential.destroy
-    redirect_to credential_path(@credential)    
+    redirect_to credentials_path   
   end
 
  
