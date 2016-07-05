@@ -1,8 +1,15 @@
-<!-- 
-Commented because at this point, all info about special education certificates should already be included with the teacher information.
-	<%= render partial: "special_education" if @teacher.special_education %> -->
 
-<p>For your role (<%= @role.name %>), you need <%= pluralize @role.credentials.length, "certificate" %>.  If you would like to be emailed a copy of these results, look below the table for instructions.</p>
+<%= render partial: "teachers/opener" %>
 
+<h2>Steps</h2>
+<ul>
+	<li>For your role (<%= @role.name %>), you need <%= pluralize @role.credentials.length, "certificate" %>.</li>
+		<ul><li>If you are applying for a Special Education or Support role, keep in mind that you will need both the Special Education <u>AND</u> the corresponding general teaching certificate.</li></ul>
+	<li>You must have passed the Pennsylvania Praxis exam.</li>
+</ul>
+<p>For further details on how to complete these steps, scroll down.  You will have the option to learn more about the Praxis exam and have certification information emailed directly to you.</p>
+
+<%= render partial: "credentials/tims" %>
 <%= render partial: "credentials/local_notification" %>
+<h2>Credentials</h2>
 <%= render partial: "credentials/credential_table", locals: {credentials: @role.credentials, active: @id_list} %>
