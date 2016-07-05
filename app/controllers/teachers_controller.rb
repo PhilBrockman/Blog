@@ -14,15 +14,22 @@ DEFAULT_PER_PAGE = 5
   end
   
   def create
-    #begin
+    @teacher = Teacher.new(teacher_params)
+    if @teacher.role_id.present? && @teacher.certificate_status.present?
       @teacher = Teacher.new(teacher_params)
       @role    = Role.find(@teacher.role_id)
       @needed_certs = Role.find(@teacher.role_id).credentials.all
       render :report
-    #rescue
-    #  flash[:alert] = "Please select a valid role."
-    #  explore
-    #end
+    else
+      unless @teacher.role_id.present?
+        @teacher.errors.add(:role_id, "must not be blank.")
+      end
+      unless @teacher.certificate_status.present?
+        @teacher.errors.add(:certificate_status, "must not be blank.")
+      end
+      load_unique_roles
+      render :new
+    end
   end
 
 
@@ -48,14 +55,18 @@ DEFAULT_PER_PAGE = 5
   end
   
   def explore
+    load_unique_roles
     @teacher = Teacher.new
-    @unique_roles = Role.find_unique_names.sort_by{|r| r.name}
     render :new
   end
   
   private
+    def load_unique_roles
+      @unique_roles = Role.find_unique_names.sort_by{|r| r.name}
+    end
+
     def teacher_params
-      params.require(:teacher).permit(:role_id, :page, :per_page, :q, :name, :email,
+      params.require(:teacher).permit(:role_id, :page, :per_page, :q, :name, :email, :certificate_status,
         :credential_ids => [])
     end
 end

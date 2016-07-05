@@ -1,21 +1,33 @@
 <h2 style = "text-align:center">Welcome!</h2>
 
-<p>Please fill in the following information to receive the next steps for Pennsylvaia certification.</p>
+<p>We are excited to have you on the team at KIPP Schools.  We hold our students and teachers to high standards.  Before your first day, you must be certified and ready to teach.  To help orient yourself, please follow the steps on this page.  If you have any questions, do not hesitate to contact us at work@kippphiladelphia.org.</p>
 
 <%= form_for(@teacher) do |f| %>
+<% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <% roles_array = @unique_roles.map{ |r| [r.name, r.id]} %>
   <p>
     <%= f.label :role_id, "What is your position/teaching assignment?"%>
     <%= f.select :role_id, roles_array, :include_blank => true %>
   </p>
-<!--
+
   <p>
 <%= f.label :certificate_status, "Do you hold a current teaching certificate?" %>
 <%= f.label :certificate_status, "Yes", :value => "yes"  %><%= f.radio_button :certificate_status, "yes" %>
 <%= f.label :certificate_status, "No", :value => "no"  %><%= f.radio_button :certificate_status, "no" %>
 <%= f.label :certificate_status, "Certificate is expired or invalid", :value => "expired"  %><%= f.radio_button :certificate_status, "expired" %>
   </p>
-
+<!--
   <p>
 <%= f.label :certificate_location, "In what state do you hold this certificate (only respond if you answered ___ to the previous question)" %>
 
@@ -25,6 +37,6 @@
   </p>-->
 
   <p>
-    <%= f.submit "Search for Certificates" %>
+    <%= f.submit "Proceed" %>
   </p>
 <% end %>
