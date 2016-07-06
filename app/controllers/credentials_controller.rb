@@ -53,6 +53,6 @@ class CredentialsController < ApplicationController
     end
   
     def credential_params
-      params.require(:credential).permit(:name, :note, :link, :credential_ids => [])
+      params.require(:credential).permit(:name, :note, :link, :exam, :credential_ids => [])
     end
 end

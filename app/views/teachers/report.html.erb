@@ -6,6 +6,36 @@ As <%= @role.name.indefinite_article %> <b><%= @role.name %></b>, you will need 
 <p>For further details on how to complete these steps, scroll down.  You will have the option to learn more about the Praxis exam and have certification information emailed directly to you.</p>
 
 <%= render partial: "credentials/tims" %>
-<%= render partial: "credentials/local_notification" %>
-<h2>Credentials</h2>
-<%= render partial: "credentials/credential_table", locals: {credentials: @role.credentials, active: @id_list} %>
+
+<% if @role.exams.count > 0 %>
+	<%= render partial: "credentials/credential_table", locals: {credentials: @role.exams, title: "Exams", table_header: "Exam Name"} %>
+<% end %>
+
+<% if @role.certificates.count > 0 %>
+	<%= render partial: "credentials/credential_table", locals: {credentials: @role.certificates, title: "Certificates", table_header: "Certificate Name"} %>
+<% end %>
+
+
+
+<%= form_for(@teacher, url: {action: "email_me"}) do |f| %>
+	<% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<%= render :partial => "credentials/reminder_text" %>
+	<%= f.hidden_field :role_id,              :value => @teacher.role_id %>
+	<%= f.hidden_field :certificate_status,   :value => @teacher.certificate_status %>
+	<%= f.hidden_field :certificate_location, :value => @teacher.certificate_location %>
+	<%= f.label :name, "Name:" %> <%= f.text_field :name %> <br />
+	<%= f.label :email, "Email:" %> <%= f.text_field :email %> <br />
+	<%= recaptcha_tags %>	
+	<%= f.submit "Email me these steps" %>
+<% end %>

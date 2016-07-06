@@ -6,4 +6,13 @@ class Role < ActiveRecord::Base
   def self.find_unique_names
     return(Role.all.uniq {|r| r.name})  
   end
+
+
+	def exams
+		credentials.where(exam: true)
+	end
+
+	def certificates
+		credentials.where(exam: false)
+	end
 end
