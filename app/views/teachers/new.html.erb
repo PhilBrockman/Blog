@@ -17,23 +17,23 @@
 
   <% roles_array = @unique_roles.map{ |r| [r.name, r.id]} %>
   <p>
-    <%= f.label :role_id, "What is your position/teaching assignment?"%>
+    <%= f.label :role_id, "1. What is your position/teaching assignment?"%><br />
     <%= f.select :role_id, roles_array, :include_blank => true %>
   </p>
 
   <p>
-<%= f.label :certificate_status, "Do you hold a current teaching certificate?" %>
-<%= f.label :certificate_status, "Yes", :value => "yes"  %><%= f.radio_button :certificate_status, "yes" %>
-<%= f.label :certificate_status, "No", :value => "no"  %><%= f.radio_button :certificate_status, "no" %>
-<%= f.label :certificate_status, "Certificate is expired or invalid", :value => "expired"  %><%= f.radio_button :certificate_status, "expired" %>
+<%= f.label :certificate_status, "2. Do you hold a current teaching certificate?" %> <br />
+<%= f.radio_button :certificate_status, "yes" %> <%= f.label :certificate_status, "Yes", :value => "yes"  %><br />
+<%= f.radio_button :certificate_status, "no" %> <%= f.label :certificate_status, "No", :value => "no"  %><br />
+<%= f.radio_button :certificate_status, "expired" %> <%= f.label :certificate_status, "Certificate is expired or invalid", :value => "expired"  %>
   </p>
 
   <p>
-<%= f.label :certificate_location, "In what state do you hold this certificate (only respond if you answered \"yes\" to the previous question)" %>
+<%= f.label :certificate_location, "3. In what state do you hold this certificate (only respond if you answered \"yes\" to the previous question)" %><br />
 
-<%= f.label :certificate_location, "PA", :value => "PA"  %><%= f.radio_button :certificate_location, "PA" %>
-<%= f.label :certificate_location, "Another State", :value => "USA"  %><%= f.radio_button :certificate_location, "USA" %>
-<%= f.label :certificate_location, "International/Other", :value => "other"  %><%= f.radio_button :certificate_location, "other" %>
+<%= f.radio_button :certificate_location, "PA" %> <%= f.label :certificate_location, "PA", :value => "PA"  %><br />
+<%= f.radio_button :certificate_location, "USA" %> <%= f.label :certificate_location, "Another State", :value => "USA"  %><br />
+<%= f.radio_button :certificate_location, "other" %> <%= f.label :certificate_location, "International/Other", :value => "other"  %>
   </p>
 
   <p>
