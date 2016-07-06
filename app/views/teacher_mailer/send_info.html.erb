@@ -5,26 +5,20 @@
   </head>
   <body>
     <h1>Welcome to KIPP, <%= @teacher.name %></h1>
-    <%= render partial: "credentials/local_notification" %>
-    <p>
-      Here are the credentials you requested.
-    </p>
-    <table class="table table-bordered">
-		<thead>
-		  <tr>
-		    <td>Credential Name</td>
-		    <td>Web Link</td>
-		    <td>Notes</td>
-	    </tr>
-	  </thead>
-	  <tbody>
-		<% @role.credentials.each do |c| %>
-			<tr> 
-			  	<%= render partial: "credentials/credential", locals: {credential: c} %>
-		  	</tr>
-		<% end %>
-	  </tbody>
-	</table>
-	 Thanks
+    <h2>Overview</h2>
+	<p>As <%= @role.name.indefinite_article %> <b><%= @role.name %></b>, you will need to obtain Pennsylvania certification and pass the required Pennsylvania exams.</p>
+
+	<%= render partial: "credentials/tims" %>
+
+	<% if @role.exams.count > 0 %>
+		<h2>Exams</h2>
+		You will need to take and pass the following exams: 
+		<%= render partial: "credentials/credential_table", locals: {credentials: @role.exams, table_header: "Exam Name"} %>
+	<% end %>
+
+	<% if @role.certificates.count > 0 %>
+	  <h2>Certificates</h2>
+		<%= render partial: "credentials/credential_table", locals: {credentials: @role.certificates, table_header: "Certificate Name"} %>
+	<% end %>
   </body>
 </html>

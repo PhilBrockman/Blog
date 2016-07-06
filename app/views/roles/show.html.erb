@@ -1,8 +1,21 @@
 <h3><%= @role.name %></h3>
 
 <b><%= pluralize @role.credentials.length, "credential" %> required for this position:</b>
+<h4>Exams</h4>
 <ul>
-<% @role.credentials.each do |credential| %>
+<% @role.exams.each do |credential| %>
+<li>
+	  <%= credential.name %> :: 
+	  <%= link_to "edit", edit_credential_path(credential) %> | 
+	  <%  link = RoleCredential.where(:role_id => @role.id, :credential_id => credential.id).first %>
+	  <%= link_to 'Unlink Credential', link,  method: :delete, data: { confirm: 'Are you sure?' } %>
+	  
+	</li>
+<% end %>
+</ul>
+<h4>Certificates</h4>
+<ul>
+<% @role.certificates.each do |credential| %>
 <li>
 	  <%= credential.name %> :: 
 	  <%= link_to "edit", edit_credential_path(credential) %> | 

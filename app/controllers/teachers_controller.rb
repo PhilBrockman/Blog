@@ -44,7 +44,7 @@ DEFAULT_PER_PAGE = 5
 
     if verify_recaptcha(model: @teacher) && @teacher.save
       foo = TeacherMailer.send_info(@teacher.email, @teacher).deliver_now
-      redirect_to "/", notice: "email sent!"
+      redirect_to "/", notice: "Email sent!"
     else
       @role    = Role.find(@teacher.role_id)
       @needed_certs = Role.find(@teacher.role_id).credentials.all
