@@ -1,16 +1,17 @@
 <h3><%= @role.name %></h3>
 
 <b><%= pluralize @role.credentials.length, "credential" %> required for this position:</b>
+<ul>
 <% @role.credentials.each do |credential| %>
-<p>
-
-  <%= credential.name %> :: 
-
-  <%  link = RoleCredential.where(:role_id => @role.id, :credential_id => credential.id).first %>
-  <%= link_to 'Unlink Credential', link,  method: :delete, data: { confirm: 'Are you sure?' } %>
-  
-</p>
+<li>
+	  <%= credential.name %> :: 
+	  <%= link_to "edit", edit_credential_path(credential) %> | 
+	  <%  link = RoleCredential.where(:role_id => @role.id, :credential_id => credential.id).first %>
+	  <%= link_to 'Unlink Credential', link,  method: :delete, data: { confirm: 'Are you sure?' } %>
+	  
+	</li>
 <% end %>
+</ul>
 <p>Create a <%= link_to "new credential", new_credential_path %>.</p>
 <hr />
 <b>Attach a Credential</b>
