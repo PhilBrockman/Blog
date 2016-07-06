@@ -27,16 +27,16 @@
 <%= f.label :certificate_status, "No", :value => "no"  %><%= f.radio_button :certificate_status, "no" %>
 <%= f.label :certificate_status, "Certificate is expired or invalid", :value => "expired"  %><%= f.radio_button :certificate_status, "expired" %>
   </p>
-<!--
+
   <p>
-<%= f.label :certificate_location, "In what state do you hold this certificate (only respond if you answered ___ to the previous question)" %>
+<%= f.label :certificate_location, "In what state do you hold this certificate (only respond if you answered \"yes\" to the previous question)" %>
 
 <%= f.label :certificate_location, "PA", :value => "PA"  %><%= f.radio_button :certificate_location, "PA" %>
 <%= f.label :certificate_location, "Another State", :value => "USA"  %><%= f.radio_button :certificate_location, "USA" %>
 <%= f.label :certificate_location, "International/Other", :value => "other"  %><%= f.radio_button :certificate_location, "other" %>
-  </p>-->
+  </p>
 
   <p>
-    <%= f.submit "Proceed" %>
+    <%= f.submit "Get Next Steps" %>
   </p>
 <% end %>

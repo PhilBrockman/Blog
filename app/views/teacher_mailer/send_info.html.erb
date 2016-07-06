@@ -18,7 +18,7 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-		<% @teacher.credentials.each do |c| %>
+		<% @role.credentials.each do |c| %>
 			<tr> 
 			  	<%= render partial: "credentials/credential", locals: {credential: c} %>
 		  	</tr>

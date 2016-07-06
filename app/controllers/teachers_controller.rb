@@ -15,18 +15,23 @@ DEFAULT_PER_PAGE = 5
   
   def create
     @teacher = Teacher.new(teacher_params)
-    if @teacher.role_id.present? && @teacher.certificate_status.present?
+
+    unless @teacher.role_id.present?
+      @teacher.errors.add(:role_id, "must not be blank.")
+    end
+    unless @teacher.certificate_status.present?
+      @teacher.errors.add(:certificate_status, "must not be blank.")
+    end
+    if @teacher.certificate_status == "yes" && !@teacher.certificate_location.present?
+      @teacher.errors.add(:certificate_location, "must be specified")
+    end
+
+    if @teacher.errors.count <= 0
       @teacher = Teacher.new(teacher_params)
       @role    = Role.find(@teacher.role_id)
       @needed_certs = Role.find(@teacher.role_id).credentials.all
       render :report
     else
-      unless @teacher.role_id.present?
-        @teacher.errors.add(:role_id, "must not be blank.")
-      end
-      unless @teacher.certificate_status.present?
-        @teacher.errors.add(:certificate_status, "must not be blank.")
-      end
       load_unique_roles
       render :new
     end
@@ -35,15 +40,14 @@ DEFAULT_PER_PAGE = 5
 
   def email_me
     @teacher = Teacher.new(teacher_params)
-    @credentials = @teacher.credentials
+    @credentials = Role.find(@teacher.role_id).credentials.all
 
-    if @credentials.length > 0 && verify_recaptcha(model: @teacher) && @teacher.save
+    if verify_recaptcha(model: @teacher) && @teacher.save
       foo = TeacherMailer.send_info(@teacher.email, @teacher).deliver_now
       redirect_to "/", notice: "email sent!"
     else
       @role    = Role.find(@teacher.role_id)
       @needed_certs = Role.find(@teacher.role_id).credentials.all
-      @id_list =  params[:teacher][:credential_ids]
       render :report
     end
   end
@@ -66,7 +70,6 @@ DEFAULT_PER_PAGE = 5
     end
 
     def teacher_params
-      params.require(:teacher).permit(:role_id, :page, :per_page, :q, :name, :email, :certificate_status,
-        :credential_ids => [])
+      params.require(:teacher).permit(:role_id, :page, :per_page, :q, :name, :email, :certificate_status, :certificate_location)
     end
 end
