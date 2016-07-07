@@ -14,7 +14,9 @@
 		  	<td>Date</td>
 		    <td>Teacher Name</td>
 		    <td>Email</td>
-		    <td>Sent Certifications</td>
+		    <td>Role</td>
+		    <td>Certification Status</td>
+		    <td>Certification Location</td>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -23,13 +25,9 @@
 				<td><%= t.created_at.to_formatted_s(:long) %></td>
 				<td><%= t.name %></td>
 				<td><%= t.email %></td>
-				<td>
-					<ol>
-					<% t.credentials.each do |c| %>
-						<li><%= c.name %></li>
-					<% end %>
-					</ol>
-				</td>
+				<td><%= Role.find(t.role_id).name if t.role_id%></td>
+				<td><%= t.certificate_status %></td>
+				<td><%= t.certificate_location %></td>
 		  	</tr>
 		<% end %>
 	  </tbody>
