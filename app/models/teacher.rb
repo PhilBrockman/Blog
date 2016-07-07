@@ -2,6 +2,8 @@ class Teacher < ActiveRecord::Base
 	has_many :teacher_credentials
 	has_many :credentials, :through => :teacher_credentials
 
+	#has_one :role, dependent: :destroy
+
 	validates :name, presence: true
 	validates :email, presence: true
 	

@@ -1,0 +1,19 @@
+<h2>Overview</h2>
+<p>As <%= role.name.indefinite_article %> <b><%= role.name %></b>, you will need to obtain Pennsylvania certification and pass the required Pennsylvania exams.</p>
+<ul>
+	<li><b><u>Note</u></b>: If you will be in a learning support or special education role, please go back and select a role from the dropdown menu that contains your subject area and the words <i>learning support</i></li>
+</ul>
+<p>For further details on how to complete these steps, scroll down.  You will have the option to learn more about the Praxis exam and have certification information emailed directly to you.</p>
+
+<%= render partial: "credentials/tims" %>
+
+<% if role.exams.count > 0 %>
+	<h2>Exams</h2>
+	You will need to take and pass the following exams: 
+	<%= render partial: "credentials/credential_table", locals: {credentials: role.exams, table_header: "Exam Name"} %>
+<% end %>
+
+<% if role.certificates.count > 0 %>
+  <h2>Credentials</h2>
+	<%= render partial: "credentials/credential_table", locals: {credentials: role.certificates, table_header: "Credential Name"} %>
+<% end %>
