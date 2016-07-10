@@ -1,4 +1,4 @@
-<%= render partial: "teachers/main_content", locals: {role: @role} %>
+<%= render partial: "teachers/main_content", locals: {role: @role, teacher: @teacher} %>
 
 <%= form_for(@teacher, url: {action: "email_me"}) do |f| %>
 	<% if @teacher.errors.any? %>

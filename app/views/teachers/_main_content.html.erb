@@ -5,6 +5,20 @@
 </ul>
 <p>For further details on how to complete these steps, scroll down.  You will have the option to learn more about the Praxis exam and have certification information emailed directly to you.</p>
 
+<p>
+<% if @teacher.certificate_status == "yes" %>
+	<% if @teacher.certificate_location == "PA" %>
+		Awesome.  Send your stuff to HR
+	<% else %>
+		Let's figure out how to convert your stuff to valid in this state
+	<% end %>
+<% elsif @teacher.certificate_status == "no" %>
+	You should probably get certified in PA
+<% else %>
+	How to convert an expired cert into a valid cert
+<% end %>
+</p>
+
 <%= render partial: "credentials/tims" %>
 
 <% if role.exams.count > 0 %>
