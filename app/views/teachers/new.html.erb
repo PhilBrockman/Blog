@@ -17,7 +17,8 @@
     </div>
   <% end %>
 
-  <% roles_array = @unique_roles.map{ |r| [r.name, r.id]} %>
+  <% roles_array = @unique_roles.map{ |r| [r.name, r.id]}
+     roles_array.sort!{|a,b| a <=> b } %>
   <p>
     <%= f.label :role_id, "1. What is your position/teaching assignment?"%><br />
     <%= f.select :role_id, roles_array, :include_blank => true %>
