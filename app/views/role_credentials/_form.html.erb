@@ -8,7 +8,8 @@
 	</div>
 	
 	<div class="field">
-		<% r = Credential.all - role.credentials %>
+		<% r = Credential.all - role.credentials
+		   r.sort!{|a,b| a.name.downcase <=> b.name.downcase} %>
 		<%= f.select :credential_id, r.collect { |c| [ c.name, c.id ] } %>
 		<%= f.submit "Attach Credential" %>
 	</div>
