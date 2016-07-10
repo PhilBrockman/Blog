@@ -15,6 +15,6 @@ class Role < ActiveRecord::Base
 	end
 
 	def certificates
-		credentials.where(exam: false)
+		credentials.all - exams
 	end
 end
