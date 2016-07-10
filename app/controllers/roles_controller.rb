@@ -5,7 +5,8 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.order('name ASC').all
+    @roles = Role.where('hidden IS NULL OR hidden IS FALSE').order('name ASC').all
+    @hidden = Role.where('hidden IS TRUE').order('name ASC').all
   end
 
   # GET /roles/1
@@ -57,7 +58,8 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.json
   def destroy
-    @role.destroy
+    @role.hidden = true
+    @role.save
     respond_to do |format|
       format.html { redirect_to roles_url, notice: 'Role was successfully destroyed.' }
       format.json { head :no_content }
@@ -72,6 +74,6 @@ class RolesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params
-      params.require(:role).permit(:name)
+      params.require(:role).permit(:name, :hidden)
     end
 end
