@@ -14,7 +14,7 @@
     <% @roles.each do |role| %>
       <tr>
         <td><%= role.name %></td>
-        <td><% if role.certificates.count == 0%><span style="background-color:red">!!!</span><% end %></td>
+        <td><% if role.credentials.count == 0%><span style="background-color:red">!!!</span><% end %></td>
         <td><%= link_to 'Show', role %></td>
         <td><%= link_to 'Edit', edit_role_path(role) %></td>
         <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
