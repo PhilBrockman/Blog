@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
+#  Mercury::Engine.routes
   devise_for :admins#, :skip => [:registrations] 
   devise_scope :admin do
     get 'sign_in', to: 'devise/sessions#new'
