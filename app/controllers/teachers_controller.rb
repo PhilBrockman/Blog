@@ -66,7 +66,7 @@ DEFAULT_PER_PAGE = 5
   
   private
     def load_unique_roles
-      @unique_roles = Role.find_unique_names.sort_by{|r| r.name}
+      @unique_roles = Role.all - Role.where(:hidden => true)#find_unique_names.sort_by{|r| r.name}
     end
 
     def teacher_params
