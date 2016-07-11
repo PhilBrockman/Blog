@@ -19,6 +19,6 @@
 	<%= f.hidden_field :certificate_location, :value => @teacher.certificate_location %>
 	<%= f.label :name, "Name:" %> <%= f.text_field :name %> <br />
 	<%= f.label :email, "Email:" %> <%= f.text_field :email %> <br />
-	< %= recaptcha_tags %>	
+	<%= recaptcha_tags %>	
 	<%= f.submit "Email me these steps" %>
 <% end %>
