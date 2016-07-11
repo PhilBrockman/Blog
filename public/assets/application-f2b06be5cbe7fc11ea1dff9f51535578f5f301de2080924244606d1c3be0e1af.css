@@ -1,0 +1,130 @@
+/* line 1, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #F4EFEB;
+  color: #333;
+  font-family: "FullerSansDT-Regular",Calibri,Helvetica,sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 15, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #60A2D7;
+  text-decoration: none;
+}
+/* line 19, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  text-decoration: none;
+  color: #4082B7;
+}
+
+/* line 25, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+p.centered {
+  text-align: center;
+}
+
+/* line 29, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+div.pagination {
+  display: inline;
+}
+
+/* line 33, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+fdiv {
+  display: block;
+  padding: 7px;
+}
+/* line 37, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+fdiv.field, fdiv.actions {
+  margin-bottom: 10px;
+}
+/* line 40, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+fdiv#container {
+  margin: auto;
+  width: 800px;
+}
+/* line 44, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+fdiv#header {
+  background-color: #A7CFEE;
+  vertical-align: top;
+  font-size: 120%;
+}
+/* line 49, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+fdiv#content {
+  font-size: 80%;
+  background-color: #FFFFFF;
+}
+
+/* line 56, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+img#main_title {
+  width: 100%;
+  margin: auto;
+}
+
+/* line 62, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#alert {
+  color: red;
+}
+
+/* line 66, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 70, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: inline;
+}
+
+/* line 76, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 84, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 95, /Users/philbrockman/Google Drive/School/Job-related things/summer 2016/Kipp/railtest/Blog/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+@-webkit-viewport{width:device-width;zoom:1.0}@-moz-viewport{width:device-width;zoom:1.0}@-ms-viewport{width:device-width;zoom:1.0}@-o-viewport{width:device-width;zoom:1.0}@viewport{width:device-width;zoom:1.0}html{overflow-y:auto}img,audio,video,canvas{max-width:100%}.container{max-width:40em;width:88%;margin-left:auto;margin-right:auto}table{max-width:100%;border-collapse:collapse;border-spacing:0}.table{width:100%;margin-bottom:1.52941em}.table th,.table td{padding:0.47059em;text-align:left;border-top:0.07143em solid #b8b8b8}.table th{font-weight:bold;vertical-align:bottom}.table td{vertical-align:top}.table thead:first-child tr th,.table thead:first-child tr td{border-top:0}.table tbody+tbody{border-top:0.14286em solid #b8b8b8}.table-condensed th,.table-condensed td{padding:0.29412em}.table-bordered{border:0.07143em solid #b8b8b8;border-collapse:separate;*border-collapse:collapsed;border-radius:0.47059em}.table-bordered th+th,.table-bordered td+td,.table-bordered th+td,.table-bordered td+th{border-left:0.07143em solid #b8b8b8}.table-bordered thead:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child td{border-top:0}.table-bordered thead:first-child tr:first-child th:first-child,.table-bordered tbody:first-child tr:first-child td:first-child{border-radius:0.47059em 0 0 0}.table-bordered thead:first-child tr:first-child th:last-child,.table-bordered tbody:first-child tr:first-child td:last-child{border-radius:0 0.47059em 0 0}.table-bordered thead:last-child tr:last-child th:first-child,.table-bordered tbody:last-child tr:last-child td:first-child{border-radius:0 0 0 0.47059em}.table-bordered thead:last-child tr:last-child th:last-child,.table-bordered tbody:last-child tr:last-child td:last-child{border-radius:0 0 0.47059em 0}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+/*  require jquery-ui/datepicker */
+
