@@ -5,15 +5,16 @@
 </ul>
 <p>For further details on how to complete these steps, scroll down.  You will have the option to learn more about the Praxis exam and have certification information emailed directly to you.</p>
 
+<h2>On Your Certification</h2>
 <p>
 <% if @teacher.certificate_status == "yes" %>
 	<% if @teacher.certificate_location == "PA" %>
-		Awesome.  Send your stuff to HR
+		You indicated that you already have your certification in Pennsylvania.  Please confirm that your certificates are listed below and email work@kippphiladelphia.org.
 	<% else %>
-		Let's figure out how to convert your stuff to valid in this state
+		To get your certificate validade in Pennsylvania, please review the information listed on <%= link_to "this", "http://www.education.pa.gov/Teachers%20-%20Administrators/Certifications/Pennsylvania%20Certification/Pages/Out-of-State.aspx" %> website.
 	<% end %>
 <% elsif @teacher.certificate_status == "no" %>
-	You should probably get certified in PA
+	Follow the steps below to learn which certificates you need to teach in Pennsylvania.
 <% else %>
 	How to convert an expired cert into a valid cert
 <% end %>
