@@ -17,7 +17,7 @@
 	<% else %>
 		As an out of country certificate holder, you will need to obtain Pennsylvania certification to teach with KIPP Philadelphia Schools. 
 	<% end %>
-	
+
 </p>
 <% end %>
 
@@ -25,10 +25,11 @@
 
 <% if role.exams.count > 0 %>
 	<h2>Exams</h2>
-	<%= render partial: "credentials/credential_table", locals: {credentials: role.exams, table_header: "Exam Name"} %>
+	<%= render partial: "teachers/creds", locals: {credentials: role.exams} %>
 <% end %>
 
 <% if role.certificates.count > 0 %>
   <h2>Credentials</h2>
-	<%= render partial: "credentials/credential_table", locals: {credentials: role.certificates, table_header: "Credential Name"} %>
+
+	<%= render partial: "teachers/creds", locals: {credentials: role.certificates} %>
 <% end %>
