@@ -1,8 +1,14 @@
 <h2>Overview</h2>
 <p>As <%= role.name.indefinite_article %> <b><%= role.name %></b>, you will need to obtain Pennsylvania certification and pass the required Pennsylvania exams.</p>
+<% unless role.special_education %>
 <ul>
-	<li><b><u>Note</u></b>: If you will be in a learning support or special education role, please go back and select a role from the dropdown menu that contains your subject area and the words <i>learning support</i></li>
+	<li><b><u>Note</u></b>: If you will be in a learning support or special education role, please go back and select a role from the dropdown menu that contains your subject area and the words <i>learning support</i>.</li>
 </ul>
+<% else %>
+<ul>
+	<li><b><u>Note</u></b>: please note as a special education teacher you will need to obtain a content area certification (e.g. Math 7-12 or PK-4).</li>
+</ul>
+<% end %>
 <p>For further details on how to complete these steps, scroll down.  You will have the option to learn more about the Praxis exam and have certification information emailed directly to you.</p>
 
 
