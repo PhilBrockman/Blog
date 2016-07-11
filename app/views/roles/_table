@@ -1,0 +1,25 @@
+<table class="table table-bordered">
+	<thead>
+	  <tr>
+	    <td>Name</td>
+	    <td>Web Link</td>
+	    <td>Notes</td>
+	    <td></td>
+	    <td></td>
+    </tr>
+  </thead>
+  <tbody>
+	<% credentials.each do |c| %>
+		<tr> 
+		  	<%= render partial: "credentials/credential", locals: {credential: c} %>
+	    <td><%= link_to 'edit', edit_credential_path(c) %></td>
+	      <%  link = RoleCredential.where(:role_id => @role.id, :credential_id => c.id).first %>
+	    <td><%= link_to 'Unlink Credential', link,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  	</tr>
+	<% end %>
+  </tbody>
+</table>
+
+
+	
+	  

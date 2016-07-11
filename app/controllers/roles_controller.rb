@@ -14,6 +14,9 @@ class RolesController < ApplicationController
   def show
     @credentials = Credential.order('name ASC').all.uniq{|c| c.name}
     @role_credential = @role.role_credentials.new
+
+    @exams = @role.credentials.where(:exam => true).order('name ASC')
+    @creds = @role.credentials.all - @exams
   end
 
   # GET /roles/new
