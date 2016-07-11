@@ -2,6 +2,7 @@ class Role < ActiveRecord::Base
   belongs_to :teacher
   has_many :role_credentials, dependent: :destroy
   has_many :credentials, :through => :role_credentials, dependent: :destroy
+  has_many :tracks, dependent: :destroy
 
   validates :name, uniqueness: true, :length => {minimum: 1}
   

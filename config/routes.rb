@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get 'sent_mail' => 'teachers#index'
   resources :role_credentials
   resources :teachers
-  resources :roles
+  resources :roles do
+    resources :tracks
+  end
   resources :credentials
   
   root 'teachers#explore'
