@@ -1,5 +1,6 @@
 
 class Credential < ActiveRecord::Base
+#  include Bootsy::Container
 
   has_many :role_credentials
   has_many :roles, :through => :role_credentials
