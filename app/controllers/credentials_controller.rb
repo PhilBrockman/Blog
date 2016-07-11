@@ -3,7 +3,8 @@ class CredentialsController < ApplicationController
   before_action :set_credential, :except => [:create, :new, :index, :email_me]
   
   def index
-    @credentials = Credential.order('name ASC')
+    @exams = Credential.where(:exam => true).order('name ASC')
+    @creds = Credential.all - @exams
   end
 
   def new
