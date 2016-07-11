@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+
   devise_for :admins#, :skip => [:registrations] 
   devise_scope :admin do
     get 'sign_in', to: 'devise/sessions#new'
     get 'sign_out', to: 'logout'
   end
 
-  get 'roles/credentials', to: 'credentials#index'
-  get 'explore', to: 'teachers#explore'
-  post 'explore' => 'teachers#create'
+  #get 'explore', to: 'teachers#explore'
+  #post 'explore' => 'teachers#create'
+  get '/report', to: 'teachers#report', as: 'report'
   post 'email_me' => 'teachers#email_me'
   get 'sent_mail' => 'teachers#index'
   resources :role_credentials

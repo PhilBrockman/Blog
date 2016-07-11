@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # for authentication
 gem 'devise'
+gem 'bootsy'
 gem 'indefinite_article'
 # Use sqlite3 as the database for Active Record
   gem 'pg', '~> 0.18.4'

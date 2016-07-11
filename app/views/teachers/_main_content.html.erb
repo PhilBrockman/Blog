@@ -11,7 +11,7 @@
 	<% if @teacher.certificate_location == "PA" %>
 		You indicated that you already have your certification in Pennsylvania.  Please confirm that your certificates are listed below and email work@kippphiladelphia.org.
 	<% else %>
-		To get your certificate validade in Pennsylvania, please review the information listed on <%= link_to "this", "http://www.education.pa.gov/Teachers%20-%20Administrators/Certifications/Pennsylvania%20Certification/Pages/Out-of-State.aspx" %> website.
+		To get your certificate validated in Pennsylvania, please review the information listed on <%= link_to "this", "http://www.education.pa.gov/Teachers%20-%20Administrators/Certifications/Pennsylvania%20Certification/Pages/Out-of-State.aspx", :target => "_blank" %> website.
 	<% end %>
 <% elsif @teacher.certificate_status == "no" %>
 	Follow the steps below to learn which certificates you need to teach in Pennsylvania.
@@ -24,7 +24,6 @@
 
 <% if role.exams.count > 0 %>
 	<h2>Exams</h2>
-	You will need to take and pass the following exams: 
 	<%= render partial: "credentials/credential_table", locals: {credentials: role.exams, table_header: "Exam Name"} %>
 <% end %>
 

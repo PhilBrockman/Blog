@@ -2,9 +2,7 @@
 
 <p>Please fill in the following information to receive the next steps for Pennsylvania Certification.</p>
 
-
-
-<%= form_for(@teacher) do |f| %>
+<%= form_for(@teacher, url: {action: "report"}, method: "get") do |f| %>
 <% if @teacher.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this role from being saved:</h2>

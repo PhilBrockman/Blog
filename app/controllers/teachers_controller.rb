@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-before_filter :authenticate_admin!, :except => [:explore, :create, :email_me]
+before_filter :authenticate_admin!, :except => [:explore, :create, :email_me, :report]
 DEFAULT_PER_PAGE = 5
   def index
     if params[:q]
@@ -13,7 +13,7 @@ DEFAULT_PER_PAGE = 5
     @teacher = Teacher.new
   end
   
-  def create
+  def report
     @teacher = Teacher.new(teacher_params)
 
     unless @teacher.role_id.present?
